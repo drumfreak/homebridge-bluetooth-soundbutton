@@ -220,8 +220,9 @@ SoundButtonPlatform.prototype.setPowerState = function(thisPlug, powerState, cal
       }
 
       if(thisPlug.playProcess.killed === false) {
-        thisPlug.playProcess.kill('SIGHUP');
-        thisPlug.playProcess.kill('SIGINT');
+        // thisPlug.playProcess.kill('SIGHUP');
+        // thisPlug.playProcess.kill('SIGINT');
+        thisPlug.playProcess.kill('SIGTERM');
 
         if(this.debugging === true) {
           this.pdebug('******* Killing PID .... ' + thisPlug.playProcess.pid);
@@ -237,8 +238,9 @@ SoundButtonPlatform.prototype.setPowerState = function(thisPlug, powerState, cal
       if(thisPlug.playProcess.killed !== 1 && thisPlug.playProcess.exitCode === 0) {
         this.log('******* Exit Kill PID .... ' + thisPlug.playProcess.pid);
 
-        thisPlug.playProcess.kill('SIGHUP');
-        thisPlug.playProcess.kill('SIGINT');
+        // thisPlug.playProcess.kill('SIGHUP');
+        // thisPlug.playProcess.kill('SIGINT');
+        thisPlug.playProcess.kill('SIGTERM');
 
         if(this.debugging === true) {
           this.pdebug('******* Kill State .... ' + thisPlug.playProcess.killed);
