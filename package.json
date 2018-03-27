@@ -1,0 +1,39 @@
+{
+  "name": "homebridge-bluetooth-soundbutton",
+  "version": "0.0.1",
+  "description": "Homebridge Bluetooth Sound Buttons using Alsa speakers for Raspberry Pi and Linux systems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drumfreak/homebridge-bluetooth-soundbutton.git"
+  },
+  "keywords": [
+    "homebridge-plugins",
+    "bluetooth",
+    "audio",
+    "sound",
+    "switch",
+    "button",
+    "raspberry",
+    "pi",
+    "smarthome"
+  ],
+  "author": "Eric Rosebrock <webfreakeric@gmail.com> (https://github.com/drumfreak)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drumfreak/homebridge-bluetooth-soundbutton/issues"
+  },
+  "homepage": "https://github.com/drumfreak/homebridge-bluetooth-soundbutton#readme",
+
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "child-process": "^1.0.2"
+  }
+}
