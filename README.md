@@ -10,18 +10,23 @@ I created this in an effort to setup a bluetooth system using multiple speaker g
 
 
 
-
 ## Homebridge / HomeKit Device Limitation Considerations
 
-There are limitations in homebridge and Apple's Homekit where up to 100 devices can be exposed. If you have a busy smart home with a lot of devices polling, it can slow down your Homekit response times and you'll start to see "Updating" while waiting on the status of your devices. For example, I use a Philips Hue Hub and a Samsung Smart Things hub with a few other homebridge plugins and running about 70 devices using light bubls, plugs, sensors and more, so I see "updating" a lot.  Therefore, I recommend you create a separate installation of your homebridge (see Standalone Install below) for running sounds and then add it to your Apple Home app via an accessory.
+There are limitations in homebridge and Apple's Homekit where up to 100 devices can be exposed. If you have a busy Smart Home with a lot of devices polling and refreshing, it can slow down your HomeKit response times and you'll start to see "Updating" while waiting on the status of your devices. For example, I use a Philips Hue Hub and a Samsung SmartThings hub with a few other homebridge plugins and running about 70 devices using light bulbs, plugs, door locks, cameras, sensors and more, so I see "updating" a lot when using the Home app on iOS even with a dedicated iPad as my bridge.  Therefore, I recommend you create a separate installation of your homebridge (see Standalone Install below) for running sounds and then add it to your Apple Home app via an accessory. This way... you can have up to 100 sounds and all of your devices all in one app :) 
 
 
 # Installation
 
+> You'll need to setup and follow the homebridge instructions here: https://github.com/nfarina/homebridge
+
+> Raspberry Pi Users, check this out: https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi
+
 
 ## Standard Installation - Adding to your Existing Homebridge:
 
-	`npm -i -g homebridge-bluetooth-soundbutton`
+```sh
+	npm install -g homebridge-bluetooth-soundbutton
+```
 
 Example Homebridge `config.json`
 
@@ -154,21 +159,24 @@ Example Homebridge `config.json`
 ## Rasberry Pi Homebridge Standalone (Separate) Sound Server:
 
 Assuming you're running systemd and using systemctl to manage your Homebridge install under the 'pi' user:
-
+```sh
 	[pi@homebridge] mkdir ~/.homebridge-sounds
 	[pi@homebridge] nano ~/.homebridge-sounds/config.json
 	[pi@homebridge] cd /home/pi/.homebridge-sounds/
 	[pi@homebridge] mkdir ~/.homebridge-sounds/sounds
 	[pi@homebridge] cd /home/pi/.homebridge-sounds/sounds
 	[pi@homebridge] pwd
+```
 
 The output will be where you place your sound files, however you choose what directory you would like:
 
+```sh
 	[pi@homebridge:] cd ~/.homebridge-soundserver/sounds
 	[pi@homebridge:] pwd
 	/home/pi/.homebridge-soundserver/sounds (<--- This is your config sound path)
+```
 
-Setup a full homebridge config for this separate homebridge instance:
+Setup a full homebridge `config.json` for this separate homebridge instance:
 
 	{
 		"bridge": {
@@ -275,8 +283,10 @@ Setup a full homebridge config for this separate homebridge instance:
 	
 ### Raspberry Pi systemd / systemctl config:
 
+```sh
 	[pi@homebridge] sudo cp /etc/default/homebridge /etc/default/homebridge-sounds
 	[pi@homebridge] sudo cp /etc/systemd/system/homebridge.service /etc/systemd/system/homebridge-sounds.service
+```
 
 Now edit `sudo nano /etc/default/homebridge-sounds` and here's how my file looks:
 
@@ -315,11 +325,12 @@ Now edit `sudo nano /etc/systemd/system/homebridge-sounds.service` and here's ho
 
 
 Next reload the systemd daemon and set the sound server to boot:
-
+```sh
 	[pi@homebridge] sudo systemctl daemon-reload
 	[pi@homebridge] sudo systemctl enable homebridge-sounds
 	[pi@homebridge] sudo systemctl start homebridge-sounds
 	[pi@homebridge] journalctl -f -u homebridge-sounds
+```
 
 You should be able to see the logs and the next step is to add this new homebridge "Pi Sound Server" with the PIN number you created in the config file above.
 
