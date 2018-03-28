@@ -1,4 +1,14 @@
 #!/bin/bash
+# This script is a wrapper for omxplayer and bluez alsa devices, it really isn't necessary but for testing and debugging
+# while building github@drumfreak/homebridge-bluetooth-soundbutton on Raspberry Pi 3 with Stretch, I was running into
+# issues with lanching child-process and spawn escaping alsa: and quoting the arguments like "-o alsa:foo" and so this workaround
+# was created.
+
+# run from command line, after chmod +x bluetooth-play such as:
+# ./bluetooth-play /usr/bin/omxplayer.bin default /home/pi/sounds/mySound.mp3
+# ./<name of script> <full path to player> <alsa PCM name> <sound file full path>
+
+
 exit_script() {
     echo ""
     echo "I was asked to die, so I shall. Goodbye world!"
@@ -11,7 +21,7 @@ exit_script() {
     echo ""
 }
 
-trap exit_script SIGINT SIGTERM
+trap exit_script SIGHUP SIGINT SIGTERM
 
 if [ "$1" == "" ]; then
 	echo "Error:"
