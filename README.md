@@ -74,11 +74,95 @@ Example Homebridge `config.json`
 
                     {
                         "accessory": "SoundButton",
+                        "id" : "092304329149214",
+                        "name" : "FuckMan",
+                        "soundFile": "/home/pi/sounds/fuckman.wav",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
                         "id" : "0923043291491114",
                         "name" : "Unicorns",
-                        "soundPlayer" : "/home/pi/bluetooth-players/bluetooth-play",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
                         "soundFile": "/home/pi/sounds/unicornsEverywhere.wav",
-                        "soundOptions" : ["/usr/bin/omxplayer.bin", "echo1"],
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
+                        "id" : "0923043291111114",
+                        "name" : "MotionDownstairs",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "soundFile": "/home/pi/sounds/motionDownstairs.wav",
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
+                        "id" : "0923043292111114",
+                        "name" : "BackDoor Opened",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "soundFile": "/home/pi/sounds/backDoorOpened.wav",
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
+                        "id" : "0923043293111114",
+                        "name" : "FrontDoor Opened",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "soundFile": "/home/pi/sounds/frontDoorOpened.wav",
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
+                        "id" : "0923043295111454",
+                        "name" : "GarageDoor Opened",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "soundFile": "/home/pi/sounds/gagageDoorOpened.wav",
+                        "repeat" : 0,
+                        "loop" : false,
+                        "volume" : 90,
+                        "debugging" : true,
+                        "soundEnabled" : true
+                    },
+
+                    {
+                        "accessory": "SoundButton",
+                        "id" : "0923043295111134",
+                        "name" : "GarageSideDoor Opened",
+                        "soundPlayer" : "/usr/bin/aplay",
+                        "soundOptions" : ["-D", "echo1"],
+                        "soundFile": "/home/pi/sounds/gagageSideDoorOpened.wav",
                         "repeat" : 0,
                         "loop" : false,
                         "volume" : 90,
