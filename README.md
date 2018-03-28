@@ -4,19 +4,20 @@ This plugin allows you to create switches (buttons) like power outlets / dimmer 
 
 I created this in an effort to setup a bluetooth system using multiple speaker groups from my Rasperry Pi 3 Homebridge  through the bluetooth adapater and multiple speakers. Did I succeed? Well, not completely, but it was a blast getting this far... I'll tell you more about that as this story goes on and give some insights to bluetooth and Raspberry Pi as of (March 2018) without Pulse Audio using BlueAlsa as that's how Raspberry Pi running on Stretch is configured by default out of the "box".
 
-![Sound Buttons in Homebridge](https://github.com/drumfreak/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds1.jpg)
-![Sound Buttons Automations in Homebridge](drumfreak.github.com/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-automations.jpg)
-![Sound Buttons Separate Homebridge Server](drumfreak.github.com/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-bridge.jpg)
-![Sound Buttons Automation Sound Triggers](drumfreak.github.com/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-automations.jpg)
+## Sounds:
+
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="left" height="200"  alt="">
+
+## Automation Triggers
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="left" alt="">
+
+## Automation Trigger Details
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="left" alt="">
+
+## Running a separate homebridge instance
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="left" alt="Sound Buttons Separate Homebridge Server">
 
 
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds1.jpg" align="center" alt="Sound Buttons in Homebridge">
-
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-automations.jpg" align="center" alt="Sound Buttons Automations in Homebridge">
-
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-bridge.jpg" align="center" alt="Sound Buttons Separate Homebridge Server">
-
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/docs/img/homebridge-sounds-automations.jpg" align="center" alt="Sound Buttons Homekit Automation Sound Triggers">
 
 
 
