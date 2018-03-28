@@ -304,7 +304,6 @@ Now edit `sudo nano /etc/default/homebridge-sounds` and here's how my file looks
 
 Now edit `sudo nano /etc/systemd/system/homebridge-sounds.service` and here's how my file looks:
 
-
 	[Unit]
 	Description=Homebridge Sound Server Node.js HomeKit Server
 	After=syslog.target network-online.target
@@ -335,4 +334,21 @@ Next reload the systemd daemon and set the sound server to boot:
 You should be able to see the logs and the next step is to add this new homebridge "Pi Sound Server" with the PIN number you created in the config file above.
 
 You can also take a look at  `ls ~/.homebridge-sounds`  to see if you now have an accessories and persist folder:
+
+```sh
+	pi@homebridge:~/.homebridge/accessories $ ls -alh ~/.homebridge-sounds/
+	total 32K
+	drwxr-xr-x  6 pi pi 4.0K Mar 28 12:55 .
+	drwxr-xr-x 27 pi pi 4.0K Mar 28 11:46 ..
+	drwxr-xr-x  2 pi pi 4.0K Mar 28 12:55 accessories
+	-rwxr--r--  1 pi pi 7.3K Mar 28 12:52 config.json
+	drwxr-xr-x  2 pi pi 4.0K Mar 28 12:55 persist
+	drwxr-xr-x  2 pi pi 4.0K Mar 28 12:13 sounds
+```
+
+Now you can go to your Home app on your iOS device and pair the new PiSound bridge and gain access to the sound switches.
+> Note: I created a separate room for my sounds called 'Sounds' and then ensured that 'Include in Favorites' is unchecked. All of my sounds are now in the "Sounds" room and I can setup my Automation triggers.
+
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="center" height="200" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="center" alt="">
+
 
