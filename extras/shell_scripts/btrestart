@@ -15,7 +15,7 @@
 # Enjoy!
 # https://github.com/drumfreak
 
-if ["$1" == "hard"]; then
+if [ "$1" == "" ]; then
 	sudo cp /etc/asound.conf /usr/share/alsa/alsa.conf.d/30-asound.conf
 	wait $!
 
