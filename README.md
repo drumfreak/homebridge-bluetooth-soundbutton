@@ -8,7 +8,7 @@ I created this in an effort to setup a bluetooth system using multiple speaker g
 
 ## Sound Buttons and Automation Triggers in iOS Apple HomeKit from Homebridge
 
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="center" height="200" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="center" alt="">
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="center" height="200" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="center" alt="">
 
 
 
@@ -351,6 +351,6 @@ You can also take a look at  `ls ~/.homebridge-sounds`  to see if you now have a
 Now you can go to your Home app on your iOS device and pair the new PiSound bridge and gain access to the sound switches.
 > Note: I created a separate room for my sounds called 'Sounds' and then ensured that 'Include in Favorites' is unchecked. All of my sounds are now in the "Sounds" room and I can setup my Automation triggers.
 
-<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="center" height="200" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="center" alt="">
+<img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-bridge.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds1.jpg" align="center" height="200" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds-automations.jpg" height="200" align="center" alt=""> <img src="https://github.com/drumfreak/homebridge-bluetooth-soundbutton/blob/master/docs/img/homebridge-sounds2.jpg" height="200" align="center" alt=""> 
 
 
