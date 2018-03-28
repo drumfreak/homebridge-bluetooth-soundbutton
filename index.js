@@ -32,8 +32,6 @@ function SoundButtonPlatform(log, config, api) {
   }
 }
 
-
-
 SoundButtonPlatform.prototype.didFinishLaunching = function() {
   this.pdebug('Finished launching, didFinishLaunching called');
   this.loadSoundAccesories(function() {
@@ -157,33 +155,40 @@ SoundButtonPlatform.prototype.addAccessory = function(data) {
 
 SoundButtonPlatform.prototype.setPowerState = function(thisPlug, powerState, callback) {
 
+  var  _playerSoundOptions = [];
+
   if(powerState === true) {
 
     this.log('******* Playing Sound.... ' + thisPlug.soundFile);
-    var options = [];
 
     if(thisPlug.soundOptions.length > 0) {
       // ['/s/c'] removes quotes and escapes from within strings.
-      options = thisPlug.soundOptions; // spawn changes this.
+      _playerSoundOptions = thisPlug.soundOptions; // spawn changes this.
     }
 
-    options.push(thisPlug.soundFile);
+    if(_playerSoundOptions.indexOf(thisPlug.soundFile) === -1) {
+	_playerSoundOptions.push(thisPlug.soundFile);
+    }
 
-    var soundPlayer = this.defaultSoundPlayer;
+    var playerSoundPlayer = this.defaultSoundPlayer;
 
     if(thisPlug.soundPlayer !== undefined && thisPlug.soundPlayer !== '') {
-      soundPlayer = thisPlug.soundPlayer;
+      playerSoundPlayer = thisPlug.soundPlayer;
     }
 
-    this.pdebug('Sound Player: ' + soundPlayer);
-    thisPlug.playProcess = spawn(soundPlayer, options);
+    this.pdebug('Sound Player: ' + playerSoundPlayer);
 
     thisPlug.isPlaying = true;
+
+    thisPlug.playProcess = new spawn(playerSoundPlayer, _playerSoundOptions);
+
     if(this.debugging) {
-      this.pdebug('Player Options: ' + options);
+      this.pdebug('Player Options: ' + _playerSoundOptions);
       this.pdebug('Player File: ' + thisPlug.soundFile);
-      this.pdebug('Player Command: ' + soundPlayer + ' ' + thisPlug.soundOptions + ' ' + thisPlug.soundFile);
+      this.pdebug('Player Command: ' + playerSoundPlayer + ' ' +  _playerSoundOptions);
+
       this.pdebug('******* Launching PID .... ' + thisPlug.playProcess.pid);
+
       this.pdebug(JSON.stringify(thisPlug.playProcess.spawnargs, null, 4));
     }
 
