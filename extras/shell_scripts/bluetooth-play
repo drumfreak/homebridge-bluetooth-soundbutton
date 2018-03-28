@@ -1,0 +1,58 @@
+#!/bin/bash
+exit_script() {
+    echo ""
+    echo "I was asked to die, so I shall. Goodbye world!"
+    echo "Stopping: $player for Speaker: $speaker playing file $playFile"
+    echo "Sending DEATH to the child pid: $pid"
+    echo "Cleaning up child: $pid"
+    trap - SIGHUP SIGINT SIGTERM # clear the trap
+    kill -9 $pid # Sends DEATH to the child/sub processes
+    echo ""
+    echo ""
+}
+
+trap exit_script SIGINT SIGTERM
+
+if [ "$1" == "" ]; then
+	echo "Error:"
+	echo "    Missing player, launch with bluetooth-play <playerExec> <soundDevice> <inputFile>"
+	echo "    Example: ./bluetooth-play /usr/bin/omxplayer.bin default /home/pi/sounds/mySound.mp3"
+	echo ""
+	echo ""
+	exit;
+fi
+
+
+if [ "$2" == "" ]; then
+	echo "Error:"
+	echo "    Missing adapter, launch with bluetooth-play <playerExec> <soundDevice> <inputFile>"
+	echo "    Example: ./bluetooth-play /usr/bin/omxplayer.bin default /home/pi/sounds/mySound.mp3"
+	echo ""
+	echo ""
+	exit;
+fi
+
+
+if [ "$3" == "" ]; then
+	echo "Error:"
+	echo "    Missing input file, launch with bluetooth-play <playerExec> <alsaDevice> <inputFile>"
+	echo "    Example: ./bluetooth-play /usr/bin/omxplayer.bin default /home/pi/sounds/mySound.mp3"
+	echo ""
+	echo ""
+	exit;
+fi
+
+player=$1
+speaker="-o alsa:$2"
+playFile=$3
+
+echo "launching $player $speaker $playFile" 
+
+$player $speaker $playFile &
+
+pid=$!
+
+echo "The Child PID has been born as: $pid"
+
+wait $pid
+
