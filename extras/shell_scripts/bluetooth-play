@@ -1,13 +1,21 @@
 #!/bin/bash
-# This script is a wrapper for omxplayer and bluez alsa devices, it really isn't necessary but for testing and debugging
-# while building github@drumfreak/homebridge-bluetooth-soundbutton on Raspberry Pi 3 with Stretch, I was running into
-# issues with lanching child-process and spawn escaping alsa: and quoting the arguments like "-o alsa:foo" and so this workaround
-# was created.
+# This script is a wrapper for omxplayer and bluez alsa devices on Raspberry Pi 3 with Stretch.
+# This script really isn't necessary but for testing and debugging
+# while building https://github.com/drumfreak/homebridge-bluetooth-soundbutton, I was running into
+# issues with launching child-process with spawn escaping command line arguments
+# like "-o alsa:foo" and so this workaround was created and I decided to share it.
 
-# run from command line, after chmod +x bluetooth-play such as:
+
+# To execute from command line, after chmod +x bluetooth-play such as:
 # ./bluetooth-play /usr/bin/omxplayer.bin default /home/pi/sounds/mySound.mp3
 # ./<name of script> <full path to player> <alsa PCM name> <sound file full path>
 
+
+# Note: DO NOT use the default "/usr/bin/omxplayer" but instead the full path to the omxplayer.bin file.
+#       /usr/bin/omxplayer.bin  
+#	*** NOT /usr/bin/omxplayer
+#      The non .bin file is a wrapper and does not return the child PID so it will not terminate when turning
+#      off the switch in homebridge.
 
 exit_script() {
     echo ""
