@@ -1,26 +1,28 @@
 #!/bin/bash
+# This script is for reconnecting to bluetooth devices that have been trusted and by the addresses below.
+# run as: /home/pi/btrestart  (for soft reconnect)
+# run as: /home/pi/btrestart hard   (for service restart and hard reconnect)
 
 if ["$1" == "hard"]; then
-
 	sudo cp /etc/asound.conf /usr/share/alsa/alsa.conf.d/30-asound.conf
 	wait $!
 
 	echo "/etc/asound.conf copied to /usr/share/alsa/alsa.conf.d/30-asound.conf"
-
 	echo "Gracefully disconnecting from bluetooth devices"
 
 	echo "restarting bluetooth services"
 	sudo systemctl restart bluetooth
 	wait $!
-
+	sleep 3
+	
 	sudo systemctl status bluetooth
 	wait $!
-
 	sleep 3
 
 	echo "restarting dbus-org.bluez service"
 	sudo systemctl  restart dbus-org.bluez
 	wait $!
+	sleep 3
 
 	sudo systemctl status dbus-org.bluez
 	wait $!
@@ -28,13 +30,8 @@ fi
 
 echo ""
 echo ""
-
-
 echo "reconnecting to bluetooth devices"
 
-#bluetoothctl -a << EOF
-#agent on
-#EOF
 echo "starting bluetoothctl"
 coproc bluetoothctl -a
 
@@ -44,7 +41,6 @@ cmd() {
 }
 
 NOTHING=__N0L1NE__
-
 getLine() { local a; read -t 1 -ru ${COPROC[0]} a; (( $? > 127 )) && echo $NOTHING || echo "$a"; }
 
 waitFor() {
@@ -58,34 +54,30 @@ waitFor() {
 
 waitFor "Agent registered"
 
-cmd disconnect 10:B7:F6:25:86:2C
-
+# disconnect and reconnect bt device by ID
+cmd disconnect XX:XX:XX:XX:XX:XX
 waitFor "Successful disconnected|Failed"
 
-cmd connect 10:B7:F6:25:86:2C
+cmd connect XX:XX:XX:XX:XX:XX
 waitFor "ServicesResolved|Failed"
 
-
-cmd disconnect FC:A1:83:0F:3B:93
+# disconnect and reconnect bt device by ID
+cmd disconnect XX:XX:XX:XX:XX:XX
 waitFor "Successful disconnected|Failed"
 
-cmd connect FC:A1:83:0F:3B:93
+cmd connect XX:XX:XX:XX:XX:XX
 waitFor "ServicesResolved|Failed"
 
-cmd disconnect FC:A1:83:60:A7:14
+# disconnect and reconnect bt device by ID
+cmd disconnect XX:XX:XX:XX:XX:XX
 waitFor "Successful disconnected|Failed"
 
-cmd connect FC:A1:83:60:A7:14
+cmd connect XX:XX:XX:XX:XX:XX
 waitFor "ServicesResolved|Failed"
 
 cmd quit
 wait
 
-#connect FC:A1:83:0F:3B:93
-#connect FC:A1:83:60:A7:14
-
-
-echo "busctl tree org.bluez:"
-
+echo "busctl tree org.bluez output:"
 
 busctl tree org.bluez
