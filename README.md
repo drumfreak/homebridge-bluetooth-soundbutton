@@ -2,6 +2,8 @@
 
 This plugin allows you to create switches (buttons) like power outlets / dimmer switches (for volume faders and on/off state) that play sounds through the command line launched from HomeBridge using Apple HomeKit.  These are useful for automating sounds delivered through speakers using the Alsa channels or built in sound card.  For example, if someone opens a door, you could have the speaker on your Homebridge (Raspberry Pi for example) server play a sound, or you could have it play a sound through bluetooth to one, or multiple speakers.
 
+When the switch / outlet for a sound is turned on, the sound will start playing through the configured speaker and when the sound is finished, the outlet automatically turns off.  Dimmer switches are coming to control the volume of the sound emulating a light dimmer.
+
 I created this in an effort to setup a bluetooth system using multiple speaker groups from my Rasperry Pi 3 Homebridge  through the bluetooth adapater and multiple speakers. Did I succeed? Well, not completely, but it was a blast getting this far... I'll tell you more about that as this story goes on and give some insights to bluetooth and Raspberry Pi as of (March 2018) without Pulse Audio using BlueAlsa as that's how Raspberry Pi running on Stretch is configured by default out of the "box".
 
 ## Sound Buttons and Automation Triggers in iOS Apple HomeKit from Homebridge
