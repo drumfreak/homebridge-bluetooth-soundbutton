@@ -15,7 +15,7 @@
 # Enjoy!
 # https://github.com/drumfreak
 
-if [ "$1" == "" ]; then
+if [ "$1" == "hard" ]; then
 	sudo cp /etc/asound.conf /usr/share/alsa/alsa.conf.d/30-asound.conf
 	wait $!
 
@@ -24,20 +24,20 @@ if [ "$1" == "" ]; then
 
 	echo "restarting bluetooth services"
 	sudo systemctl restart bluetooth
-	wait $!
+	wait
 	sleep 3
 	
 	sudo systemctl status bluetooth
-	wait $!
+	wait
 	sleep 3
 
 	echo "restarting dbus-org.bluez service"
 	sudo systemctl  restart dbus-org.bluez
-	wait $!
+	wait
 	sleep 3
 
 	sudo systemctl status dbus-org.bluez
-	wait $!
+	wait
 fi
 
 echo ""
