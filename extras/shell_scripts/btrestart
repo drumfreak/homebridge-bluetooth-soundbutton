@@ -3,6 +3,18 @@
 # run as: /home/pi/btrestart  (for soft reconnect)
 # run as: /home/pi/btrestart hard   (for service restart and hard reconnect)
 
+# This is intended to actually reconnect bluetooth devices and wait for the Service to be registered so you 
+# can play audio through them. Typically, the examples on the net call for:
+# bluetoothctl <<< EOF 
+#   some commands here
+# EOF
+
+# However, that method does not wait for the connection, so we will use coproc and wait for proper responses.
+# In my example below, 3 devices will be reconnected if their bluetooth is ON.  Replace XX:XX:XX:XX:XX:XX for your actual
+# device hardware address / ID in bluetoothctl
+# Enjoy!
+# https://github.com/drumfreak
+
 if ["$1" == "hard"]; then
 	sudo cp /etc/asound.conf /usr/share/alsa/alsa.conf.d/30-asound.conf
 	wait $!
