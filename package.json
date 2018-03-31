@@ -1,6 +1,6 @@
 {
   "name": "homebridge-bluetooth-soundbutton",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Homebridge Bluetooth Sound Buttons using Alsa speakers for Raspberry Pi and Linux systems.",
   "main": "index.js",
   "scripts": {
